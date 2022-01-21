@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  background: linear-gradient(to right bottom, grey, darkgrey);
+}
+
+.main {
+  display: flex;
+  width: 100%;
+}
+
+.nav-item {
+  list-style: none;
+  padding-bottom: 10px;
+}
+
+.nav ul li a {
+  color: white;
+}
+
+.sidebar {
+  position: sticky;
+  /* width: max (25%, 300px); */
+  width: 150px;
+  height: 100vh;
+  background: #312450;
+  /* font-size: 0.65em; */
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  background: #464057;
+}
