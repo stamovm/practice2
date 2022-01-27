@@ -19,10 +19,18 @@ body {
 .nav-item {
   list-style: none;
   padding-bottom: 10px;
+  transition: all 0.4 ease-out;
+}
+.nav-item:hover {
+  transform: scale(1.1);
 }
 
 .nav ul li a {
   color: white;
+  transition: all 0.4 ease-out;
+}
+.nav ul li a:hover {
+  color: rgb(146, 168, 178);
 }
 
 .sidebar {
@@ -53,4 +61,5 @@ body {
 .btn:hover {
   background-color: rgb(146, 168, 178);
   color: #fff;
+  transform: scale(1.1);
 }
