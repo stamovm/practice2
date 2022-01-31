@@ -1,9 +1,15 @@
 'use strict'
 // let button = { id: 1, className: 'btn', txt: 'btn' }
 let timer1 = createTimer(btn1Clicked)
+let anim1 = createAnimation(testFunction)
+
+function testFunction() {
+  // animate
+
+  document.getElementById('content1').appendChild(createButton('clicked'))
+}
 
 function btn1Clicked() {
-  console.log('clicked')
   document.getElementById('content1').appendChild(createButton('clicked'))
 }
 
@@ -16,10 +22,15 @@ function btn3Clicked() {
 }
 
 function btn4Clicked() {
-  console.log('T running: ', timer1.isRunning())
   let interval = parseInt(document.getElementById('input1').value)
   if (interval > 0) timer1.setInterval(interval)
-  console.log(timer1.getInterval())
+}
+
+function btn5Clicked() {
+  let interval = parseInt(document.getElementById('input1').value)
+  if (interval > 0) anim1.setInterval(interval)
+
+  if (anim1.isRunning) anim1.start()
 }
 
 function btnClick(id) {
@@ -28,7 +39,8 @@ function btnClick(id) {
   btn.textContent = id
 }
 
-//-------------------------------------------------------
+//---------Reusable----Functions-------------------------------
+
 // example: myDiv.appendChild(createButton('Button 1'))
 function createButton(txt, cls = 'btn') {
   const btn = document.createElement('button')
@@ -62,6 +74,33 @@ function createTimer(func, interval = 1000) {
     },
     stop: function () {
       clearInterval(timerID)
+      running = false
+    },
+  }
+}
+
+function createAnimation(func, interval = 33) {
+  let running = false
+  let animID = 0
+  let int = interval
+  function repeatAnimation() {
+    func()
+    setTimeout(requestAnimationFrame(repeatAnimation), int)
+  }
+  return {
+    isRunning: function () {
+      return running
+    },
+    setInterval: function (interval) {
+      int = interval
+      console.log('🚀 ~ file: script.js ~ line 96 ~ createAnimation ~ int', int)
+    },
+    start: function () {
+      animID = requestAnimationFrame(repeatAnimation)
+      running = true
+    },
+    stop: function () {
+      cancelAnimationFrame(animID)
       running = false
     },
   }
