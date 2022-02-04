@@ -14,7 +14,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .main {
@@ -72,16 +72,18 @@ body {
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 3px 6px rgba(0, 0, 0, 0.1);
   background-color: rgb(185, 188, 194);
-  width: 60px;
+  width: 100px;
 }
 
-#content1 {
+#content2 {
   background-color: gray;
   width: 100%;
-  min-height: 500px;
+  min-height: 200px;
 }
 
 .btn2 {
-  position: absolute;
-  position: fixed;
+  /* position: absolute; */
+  /* position: fixed; */
+  /* position: sticky; */
+  position: relative;
 }

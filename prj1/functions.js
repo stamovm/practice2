@@ -4,8 +4,8 @@ function createButton(txt, cls = 'btn') {
   btn.id = Math.random() * 100
   btn.textContent = txt
   btn.classList.add(cls)
-  btn.classList.add('btn2')
-  btn.addEventListener('click', () => btnClick(btn.id))
+
+  //   btn.addEventListener('click', () => btnClick(btn.id))
   return btn
 }
 
@@ -45,6 +45,7 @@ function createAnimation(func) {
 
   function repeatAnimation(time) {
     if (oldTime) delta = time - oldTime
+    if (delta > 20) delta = 16.6
     func(delta)
     oldTime = time
     if (running) requestAnimationFrame(repeatAnimation)
@@ -55,12 +56,14 @@ function createAnimation(func) {
       return running
     },
     start: function () {
-      animID = requestAnimationFrame(repeatAnimation)
       running = true
+      animID = requestAnimationFrame(repeatAnimation)
     },
     stop: function () {
-      cancelAnimationFrame(animID)
       running = false
+      cancelAnimationFrame(animID)
+      delta = 0
+      oldTime = 0
     },
   }
 }
