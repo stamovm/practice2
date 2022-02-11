@@ -1,4 +1,7 @@
 import { createButton, createTimer, createAnimation } from './functions.js'
+
+const speed = 0.05
+
 let content = document.querySelector('.content')
 let content1 = document.getElementById('content1')
 let content2 = document.getElementById('content2')
@@ -17,8 +20,8 @@ let anim1 = createAnimation(processButtons)
 function processButtons(delta) {
   if (!buttons) return
   buttons.forEach((btn) => {
-    btn.x += 0.05 * delta
-    btn.y += 0.05 * delta
+    btn.x += speed * delta
+    btn.y += speed * delta
     btn.btn.style.left = btn.x + 'px'
     btn.btn.style.top = btn.y + 'px'
     console.log('btn is', btn.btn.style.left, delta)
@@ -50,12 +53,6 @@ function btn4Clicked() {
 function btn5Clicked() {
   if (!anim1.isRunning()) anim1.start()
   else anim1.stop()
-}
-
-function btnClick(id) {
-  // let btn = document.getElementById(id)
-  // btn.style.left = 100 + 'px'
-  // console.log(btn.style.left)
 }
 
 myBtns.forEach((btn) => {
