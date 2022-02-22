@@ -1,4 +1,7 @@
 import React from 'react'
+import CssBaseline from '@mui/material/CssBaseline'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { green, teal } from '@mui/material/colors'
@@ -17,8 +20,21 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <main>
-        <h1>Hello world!</h1>
+        <Typography variant="h3" mt={5} ml={5}>
+          {' '}
+          Hello world!
+        </Typography>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            alert('clicked')
+          }}
+        >
+          Hello World
+        </Button>
       </main>
     </ThemeProvider>
   )
