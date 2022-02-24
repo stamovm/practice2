@@ -4,9 +4,12 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
+import { Routes, Route, Link } from 'react-router-dom'
 
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { green, teal } from '@mui/material/colors'
+
+import Home from './components/Home'
 
 const theme = createTheme({
   palette: {
@@ -72,6 +75,10 @@ const App = () => {
           <Box sx={{ ...commonStyles, borderRadius: '50%' }} />
           <Box sx={{ ...commonStyles, borderRadius: 1 }} />
           <Box sx={{ ...commonStyles, borderRadius: '16px' }} />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
         </Box>
       </main>
     </ThemeProvider>
