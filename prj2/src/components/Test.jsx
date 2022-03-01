@@ -1,5 +1,4 @@
 import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 
@@ -13,21 +12,13 @@ const commonStyles = {
 }
 
 const Test = () => {
+  function btn1Clicked() {
+    let txt = document.getElementById('standard-basic').value
+    alert(`clicked btn 1, value of standard text box is: ${txt}`)
+  }
+
   return (
     <div>
-      <Typography variant="h3" mt={5} ml={5}>
-        {' '}
-        Hello world!
-      </Typography>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          alert('clicked')
-        }}
-      >
-        Hello World
-      </Button>
       <Box
         component="form"
         sx={{
@@ -36,12 +27,21 @@ const Test = () => {
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-        <TextField id="filled-basic" label="Filled" variant="filled" />
         <TextField id="standard-basic" label="Standard" variant="standard" />
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
       </Box>
       <Box component="span" sx={{ p: 2, m: 3, border: '1px solid grey' }}>
-        <Button variant="contained">Save</Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={btn1Clicked}
+          sx={{ m: 1 }}
+        >
+          Button 1
+        </Button>
+        <Button variant="contained" sx={{ m: 1 }}>
+          Save
+        </Button>
         <Button variant="contained">load</Button>
       </Box>
       <Box
@@ -53,7 +53,7 @@ const Test = () => {
         }}
       >
         <Box sx={{ ...commonStyles, borderRadius: '50%' }} />
-        <Box sx={{ ...commonStyles, borderRadius: 1 }} />
+        <Box sx={{ ...commonStyles, borderRadius: 3 }} />
         <Box sx={{ ...commonStyles, borderRadius: '16px' }} />
       </Box>
     </div>

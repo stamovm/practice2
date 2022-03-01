@@ -1,7 +1,7 @@
 import React from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { green, teal } from '@mui/material/colors'
