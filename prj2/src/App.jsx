@@ -9,6 +9,7 @@ import { green, teal } from '@mui/material/colors'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Test from './components/Test'
+import TabsTest from './components/TabsTest.jsx'
 
 const theme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/tabs" element={<TabsTest />} />
         </Routes>
       </main>
     </ThemeProvider>
